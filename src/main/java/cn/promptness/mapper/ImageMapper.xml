@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.promptness.mapper.ImageMapper">
+
+  <resultMap id="BaseResultMap" type="cn.promptness.pojo.Image">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+    <result column="download_count" jdbcType="INTEGER" property="downloadCount" />
+    <result column="like_count" jdbcType="INTEGER" property="likeCount" />
+  </resultMap>
+  
+  <!-- public Image getById(Integer id); -->
+  <select id="getById" resultMap="BaseResultMap">
+  	SELECT id,path,info,download_count,like_count FROM tb_image <where>id = #{id}</where>
+  </select>
+  
+</mapper>
